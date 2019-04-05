@@ -1,56 +1,57 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: nginx
   name: nginx-deployment
   namespace: ivan
+  labels:
+    app: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
       source: demo
+      app: nginx
   template:
     metadata:
       labels:
-        app: nginx
         source: demo
+        app: nginx
     spec:
       containers:
-        - image: 'nginx:1.7.9'
-          name: nginx
-          ports:
-            - containerPort: 80
-          volumeMounts:
-            - mountPath: /usr/share/nginx/html
-              name: workdir
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: workdir
+            mountPath: /usr/share/nginx/html
       initContainers:
-        - command:
-            - wget
-            - '-O'
-            - /work-dir/index.html
-            - 'http://kubernetes.io'
-          image: busybox
-          name: install
-          volumeMounts:
-            - mountPath: /work-dir
-              name: workdir
-      volumes:
-        - emptyDir: {}
-          name: workdir
+      - name: install
+        image: busybox
+        command:
+        - wget
+        - "-O"
+        - "/work-dir/index.html"
+        - http://kubernetes.io
+        volumeMounts:
+        - name: workdir
+          mountPath: "/work-dir"
+    volumes:
+    - name: workdir
+      emptyDir: {}
 ---
-apiVersion: v1
+
 kind: Service
+apiVersion: v1
 metadata:
   name: ngnix-demo
   namespace: ivan
 spec:
-  ports:
-    - port: 8765
-      protocol: TCP
-      targetPort: 80
   selector:
-    app: nginx
     source: demo
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 8765
+    targetPort: 80
   type: LoadBalancer
