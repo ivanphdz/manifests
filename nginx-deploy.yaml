@@ -4,7 +4,7 @@ metadata:
   labels:
     app: nginx
   name: nginx-deployment
-  namespace: ivan
+  namespace: ivan-dev
 spec:
   replicas: 3
   selector:
@@ -44,7 +44,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ngnix-demosss
-  namespace: ivan
+  namespace: ivan-dev
 spec:
   ports:
     - port: 8765
