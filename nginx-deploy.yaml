@@ -45,7 +45,7 @@ metadata:
   name: ngnix-demosss
 spec:
   ports:
-    - port: 8765
+    - port: 8764
       protocol: TCP
       targetPort: 80
   selector:
