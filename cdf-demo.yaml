@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: cdf-demo
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - env:
+            - name: TEST_ID
+              value: '${(new java.util.UUID(0,0)).randomUUID()}'
+          image: 'nginx:1.16.0'
+          name: nginx
+          ports:
+            - containerPort: 80
