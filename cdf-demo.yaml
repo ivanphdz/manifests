@@ -28,6 +28,7 @@ kind: Service
 metadata:
   name: cdf-deploy-test-service
 spec:
+  type: ClusterIP
   selector:
     app: nginx
   ports:
