@@ -18,6 +18,8 @@ spec:
             - env:
               - name: TEST_ID
                 value: "${(new java.util.UUID(0,0)).randomUUID()}"
+              - name: APP_NAME
+                value: "aurora-${app}-test"
               name: nginx
               image: nginx:1.16.0
               ports:
