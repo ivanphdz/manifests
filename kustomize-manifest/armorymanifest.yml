@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: cdf-deploy-test
+    labels:
+        app: nginx
+spec: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cdf-deploy-test-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
