@@ -1,0 +1,16 @@
+resources:
+- armorymanifest.yml
+
+patches:
+  - patch: |-
+      - op: move
+        from: /metadata/name
+        path: /application
+    target:
+      kind: kubernetes
+
+# Apply the patches top down order
+patchesStrategicMerge:
+- manifests-patch.yml
+- strategies-patch.yml
+- targets-patch.yml

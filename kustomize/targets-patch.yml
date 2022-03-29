@@ -1,0 +1,10 @@
+apiVersion: v1
+application: cdf-advanced-test-2
+kind: kubernetes
+metadata:
+  name: cdf-advanced-test-2
+targets:
+  cdf-env-test:
+    account: cdf-dev
+    namespace: ivan-dev
+    strategy: strategies1

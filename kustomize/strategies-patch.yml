@@ -1,0 +1,19 @@
+apiVersion: v1
+application: cdf-advanced-test-2
+kind: kubernetes
+metadata:
+  name: cdf-advanced-test-2
+strategies:
+  strategies1:
+    canary:
+      steps:
+        - setWeight:
+            weight: 50
+        - pause:
+            duration: 8
+            unit: SECONDS
+        - setWeight:
+            weight: 70
+        - pause:
+            duration: 7
+            unit: SECONDS

@@ -1,0 +1,9 @@
+apiVersion: v1
+application: cdf-advanced-test-2
+kind: kubernetes
+metadata:
+  name: cdf-advanced-test-2
+manifests:
+  - path: cdf-demo.yaml
+    targets:
+      - cdf-env-test
