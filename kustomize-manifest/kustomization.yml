@@ -1,0 +1,6 @@
+resources:
+- armorymanifest.yml
+
+# Apply the patches top down order
+patchesStrategicMerge:
+- manifests-patch.yml
