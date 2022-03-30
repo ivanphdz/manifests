@@ -17,7 +17,7 @@ metadata:
     app.kubernetes.io/name: svc-spinnaker-demo
     tags.datadoghq.com/env: dev
     tags.datadoghq.com/service: svc-spinnaker-demo
-    tags.datadoghq.com/version: "${#stage('Evaluate Variables')['context']['ttype']}"
+    tags.datadoghq.com/version: "${ttype}"
 spec:
   type: ClusterIP
   selector:
