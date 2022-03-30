@@ -10,6 +10,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cdf-deploy-test-service
+  annotations:
+    imageregistry: "test-${app}-${(new java.util.UUID(0,0)).randomUUID()}"
 spec:
   type: ClusterIP
   selector:
