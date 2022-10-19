@@ -1,0 +1,27 @@
+name: Tag
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - "*/*.yaml"
+
+jobs:
+  Tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.39.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
+          PATCH_STRING_TOKEN: fix
+          MINOR_STRING_TOKEN: feat
+          MAJOR_STRING_TOKEN: break
+          DRY_RUN: true
