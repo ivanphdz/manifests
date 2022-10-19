@@ -8,7 +8,7 @@ on:
       - "*/*.yml"
 
 jobs:
-  Tag:
+  tag:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
