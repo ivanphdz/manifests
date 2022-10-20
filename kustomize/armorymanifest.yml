@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: kubernetes
-application: cdf-advanced-test-10
+application: cdf-advanced-test-11
 metadata:
-  name: cdf-advanced-test-10
+  name: cdf-advanced-test-11
 manifests: []
 strategies: {}
 targets: {}
