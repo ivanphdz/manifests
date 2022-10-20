@@ -1,4 +1,4 @@
-name: Tag
+name: Tagging
 
 on:
   pull_request:
@@ -11,7 +11,8 @@ on:
       - "*/*.yml"
 
 jobs:
-  tag:
+  tagging:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
@@ -28,5 +29,4 @@ jobs:
           DEFAULT_BUMP: patch
           PATCH_STRING_TOKEN: fix
           MINOR_STRING_TOKEN: feat
-          MAJOR_STRING_TOKEN: break
-          DRY_RUN: true
+          MAJOR_STRING_TOKEN: pref
