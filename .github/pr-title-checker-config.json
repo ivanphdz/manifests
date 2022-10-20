@@ -1,0 +1,10 @@
+{
+    "LABEL": {
+      "name": "Invalid PR Title",
+      "color": "B60205"
+    },
+    "CHECKS": {
+      "regexp": "^(perf|feat|fix)\\[([A-Z]{2,}-\\d+\\]):?.*",
+      "ignoreLabels" : ["ignore-title"]
+    }
+}
