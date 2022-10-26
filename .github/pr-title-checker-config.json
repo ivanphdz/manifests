@@ -4,7 +4,7 @@
       "color": "B60205"
     },
     "CHECKS": {
-      "regexp": "^(perf|feat|fix)\\[([A-Z]{2,}-\\d+\\]):?.*",
+      "regexp": "/^(perf|feat|fix)\\[([A-Z]{2,}-\\d+|no ticket)\\]:?.*/i",
       "ignoreLabels" : ["ignore-title"]
     }
 }
